@@ -17,8 +17,7 @@ import { TooltipService } from '../tooltip';
   template: `
     <div
       class="ngx-charts-outer"
-      [style.width.px]="view[0]"
-      [@animationState]="'active'">
+      [style.width.px]="view[0]">
       <svg
         class="ngx-charts"
         [attr.width]="chartWidth"
@@ -48,15 +47,7 @@ import { TooltipService } from '../tooltip';
       </ngx-charts-legend>
     </div>
   `,
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  animations: [
-    trigger('animationState', [
-      transition('void => *', [
-        style({ opacity: 0 }),
-        animate('500ms 100ms', style({ opacity: 1 }))
-      ])
-    ])
-  ]
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ChartComponent implements OnChanges {
 
